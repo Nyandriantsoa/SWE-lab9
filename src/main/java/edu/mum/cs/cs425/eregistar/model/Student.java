@@ -23,7 +23,7 @@ public class Student {
 	@NotNull @NotBlank @NotEmpty
 	private String firstName; 
 
-	private String MiddleName;
+	private String middleName;
 
 	@NotNull @NotBlank @NotEmpty
 	private String lastName;
@@ -47,7 +47,7 @@ public class Student {
 		super();
 		this.studentNumber = studentNumber;
 		this.firstName = firstName;
-		MiddleName = middleName;
+		this.middleName = middleName;
 		this.lastName = lastName;
 		this.cgpa = cgpa;
 		this.enrollmentDate = enrollmentDate;
@@ -79,11 +79,11 @@ public class Student {
 	}
 
 	public String getMiddleName() {
-		return MiddleName;
+		return middleName;
 	}
 
 	public void setMiddleName(String middleName) {
-		MiddleName = middleName;
+		this.middleName = middleName;
 	}
 
 	public String getLastName() {
@@ -122,7 +122,7 @@ public class Student {
 	public String toString() {
 		return String.format(
 				"Student [studentId=%s, studentNumber=%s, firstName=%s, MiddleName=%s, lastName=%s, cgpa=%s, enrollmentDate=%s, isInternational=%s]",
-				studentId, studentNumber, firstName, MiddleName, lastName, cgpa, enrollmentDate, isInternational);
+				studentId, studentNumber, firstName, middleName, lastName, cgpa, enrollmentDate, isInternational);
 	}
 	
 	

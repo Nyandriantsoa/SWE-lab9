@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/main-layout}">
+<head>
+    <title>eRegistar - Students</title>
+    <meta charset="utf-8">
+</head>
+<body>
+
+    <div class="container" layout:fragment="content">
+        <h2> Students in our database </h2>
+
+        <div>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th> # </th>
+                        <th> ID </th>
+                        <th> Full name </th>
+                        <th> Current GPA </th>
+                        <th> Enrollement </th>
+                        <th> International </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="student, studentStat : ${students} ">
+                        <th scope="row" th:text="${studentStat.count}"></th>
+                        <td th:text="${student.studentNumber}"></td>
+                        <td th:text="${student.firstName + ' ' + student.middleName + ' ' + student.lastName}"></td>
+                        <td th:text="${student.cgpa}"></td>
+                        <td th:text="${student.enrollmentDate}"></td>
+                        <td th:text="${student.isInternational}"></td>
+                    </tr>
+                    <tr th:if="${studentsCount < 1 }">
+                        <td colspan="6" style="text-align: center;"> No Students found </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
