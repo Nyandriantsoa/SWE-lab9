@@ -20,12 +20,12 @@ public class StudentService implements IStudentService {
 
     @Override
     public Student saveStudent(Student student) {
-        return null;
+        return this.studentRepository.save(student);
     }
 
     @Override
     public List<Student> getAllStudents() {
-        return null;
+        return this.studentRepository.findAll();
     }
 
     @Override

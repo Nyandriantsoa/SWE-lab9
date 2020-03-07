@@ -4,6 +4,7 @@ import edu.mum.cs.cs425.eregistar.model.Student;
 import edu.mum.cs.cs425.eregistar.service.IStudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -24,8 +25,14 @@ public class StudentController {
         List<Student> students = this.studentService.getAllStudents();
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("students", students);
+        modelAndView.addObject("studentsCount", students.size());
         modelAndView.setViewName("student/list");
         return modelAndView;
     }
 
+    @GetMapping(value = "/student/new")
+    public String displayAddNewStudentForm(Model model){
+        model.addAttribute("student" , new Student());
+        return "student/new";
+    }
 }
